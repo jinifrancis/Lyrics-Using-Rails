@@ -1,0 +1,33 @@
+// Place all the styles related to the elements controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+h1, h2 { color: white; text-align: center; font-weight: bold;
+     font-variant: small-caps; 
+     font-family: "Courier New", Lucida Console, Monospace; }
+
+h5 { color:white; text-align: center; 
+     font-family: "Courier New", Lucida Console, Monospace;}
+
+td { color: white; vertical-align: bottom;}
+
+th { color: white; text-align: center; 
+     font-size: medium; font-variant: small-caps; }
+
+.cmnt {color: white; font-weight: bold; font-variant: small-caps;}
+
+p, .field, h4 { color:white; }
+
+.welstyle { color: white; font-family: "Courier New", Lucida Console, Monospace; font-size: 18px}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {   background-color: #333333; align: center; }
+
+.box, .actions {color:black;}
+
+.buttonTo {  background: url(like.png);
+    text-indent:30px;
+    display:block;
+    cursor: pointer;
+}

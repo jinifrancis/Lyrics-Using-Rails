@@ -1,0 +1,32 @@
+<%= form_for(element) do |f| %>
+  <% if element.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(element.errors.count, "error") %> prohibited this element from being saved:</h2>
+
+      <ul>
+      <% element.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :song %>
+    <div class="box"><%= f.text_field :song %></div>
+  </div>
+
+  <div class="field">
+    <%= f.label :movie %>
+    <div class="box"><%= f.text_field :movie %></div>
+  </div>
+
+  <div class="field">
+    <%= f.label :lyric %>
+    <div class="box"><%= f.text_area :lyric, size: "30 x 15" %></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create/Modify Lyric" %>
+  </div>
+<% end %>

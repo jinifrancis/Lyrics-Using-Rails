@@ -1,0 +1,53 @@
+<p>
+  <strong style="font-variant:small-caps;font-size: medium;">Song:</strong>
+  <%= @element.song %>
+</p>
+
+<p>
+  <strong style="font-variant:small-caps;font-size: medium;">Movie:</strong>
+  <%= @element.movie %>
+</p>
+
+<p>
+  <strong style="font-variant:small-caps;font-size: medium;">Lyric:</strong>
+  <%= simple_format(@element.lyric) %>
+</p>
+
+<div class="btn btn-default btn-lg active btn-sm" role="button"><%= link_to 'Edit', edit_element_path(@element) %></div>
+<div class="btn btn-default btn-lg active btn-sm" role="button"><%= link_to 'Back', elements_path %></div>
+
+<br><br><br>
+
+<h4 class="cmnt">Comments</h4>
+<% @element.comments.each do |comment| %>
+
+  <p>
+    <strong>Commenter :</strong>
+    <%= comment.commenter %>
+    <br>
+    <strong>Comment   :</strong>
+    <%= comment.body %>
+    <br>
+    <%= link_to 'Destroy Comment', [comment.element, comment],
+               method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
+<h4 class="cmnt">Add a comment</h4>
+<%= form_for([@element, @element.comments.build]) do |f| %>
+
+  <p>
+    <%= f.label :commenter %><br>
+    <% if user_signed_in? %>
+      <strong class="box"><%= f.text_field :commenter, :value => current_user.email, :readonly => true %></strong>
+    <% end %>
+    <br>
+    <%= f.label :body %><br>
+    <span class="box"><%= f.text_area :body %></span>
+  </p>
+  <p>  
+  <span class="actions">
+    <%= f.submit "Add Comment" %>
+  </span>
+  </p>
+<% end %>
